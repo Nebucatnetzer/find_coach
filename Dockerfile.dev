@@ -1,0 +1,6 @@
+FROM node:14
+WORKDIR /app
+COPY npm-run-serve.sh /usr/bin/npm-run-serve.sh
+RUN chmod +x /usr/bin/npm-run-serve.sh
+CMD [ "npm-run-serve.sh" ]
+
