@@ -8,7 +8,19 @@
       <router-link to="/register">Register as Coach</router-link>
     </div>
     <ul>
-      List of coaches
+      <li v-for="coach in filteredCoaches" :key="coach.id">
+        {{ coach.firstName }}
+      </li>
     </ul>
   </section>
 </template>
+
+<script>
+export default {
+  computed: {
+    filteredCoaches() {
+      return this.$store.getters['coaches/coaches'];
+    }
+  }
+};
+</script>
