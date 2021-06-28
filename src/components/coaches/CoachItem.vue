@@ -13,7 +13,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['id', 'firstName', 'lastName', 'rate', 'areas'],
+  computed: {
+    fullName() {
+      return this.firstName + this.lastName;
+    },
+    coachContactLink() {
+      return this.$route.path + '/' + this.id + '/contact';
+    },
+    coachDetailsLink() {
+      return this.$route.path + '/' + this.id;
+    }
+  }
+};
 </script>
 
 <style scoped>
