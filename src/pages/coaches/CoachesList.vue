@@ -9,7 +9,7 @@
     </div>
     <ul v-if="hasCoaches">
       <coach-item
-        v-for="coach in coaches"
+        v-for="coach in filteredCoaches"
         :key="coach.id"
         :id="coach.id"
         :firstName="coach.firstName"
