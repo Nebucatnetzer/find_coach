@@ -3,7 +3,7 @@ import { createApp } from 'vue';
 import router from './router';
 import store from './store';
 import App from './App';
-import BaseBadge from './components/ui/BaseBage';
+import BaseBadge from './components/ui/BaseBadge';
 import BaseButton from './components/ui/BaseButton';
 import BaseCard from './components/ui/BaseCard';
 
