@@ -10,6 +10,11 @@ const store = createStore({
     return {
       userId: 'c3'
     };
+  },
+  getters: {
+    userId(state) {
+      return state.userId;
+    }
   }
 });
 
