@@ -5,7 +5,7 @@ export default {
       firstName: data.first,
       lastName: data.last,
       description: data.desc,
-      rate: data.rate,
+      hourlyRate: data.rate,
       areas: data.areas
     };
     context.commit('registerCoach', coachData);
