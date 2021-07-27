@@ -5,7 +5,7 @@
         <h2>Requests Received</h2>
       </header>
       <ul v-if="hasRequests">
-        <request-item v-for="req in recievedRequests" :key="reqid" :email="req.userEmail" :message="req.message">
+        <request-item v-for="req in recievedRequests" :key="req.id" :email="req.userEmail" :message="req.message">
         </request-item>
       </ul>
       <h3 v-else>You haven't received any messages</h3>
