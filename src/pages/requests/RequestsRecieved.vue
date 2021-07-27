@@ -4,14 +4,23 @@
       <header>
         <h2>Requests Received</h2>
       </header>
-      <ul></ul>
-      <h3>You haven't received any messages</h3>
+      <ul v-if="hasRequests"></ul>
+      <h3 v-else>You haven't received any messages</h3>
     </base-card>
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    recievedRequests() {
+      return this.$store.getters['requests/requests'];
+    },
+    hasRequests() {
+      return this.$store.getters['requests/hasRequests'];
+    }
+  }
+};
 </script>
 
 <style scoped>
