@@ -79,7 +79,7 @@ export default {
           });
         }
       } catch (error) {
-        this.error = error;
+        this.error = error.message || 'Failed to authenticate, try later.';
       }
       this.isLoading = false;
     },
