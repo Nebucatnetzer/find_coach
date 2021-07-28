@@ -3,7 +3,6 @@ import getAPI from '../../../scripts/axios-api';
 export default {
   async contactCoach(context, payload) {
     const request = {
-      id: new Date().toISOString(),
       userEmail: payload.email,
       message: payload.message
     };
