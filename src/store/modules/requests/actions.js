@@ -19,5 +19,27 @@ export default {
       const error = new Error(err.message);
       throw error;
     }
+  },
+  async fetchRequests(context) {
+    try {
+      const coachId = context.rootGetters.userId;
+      const response = await getAPI.get(`requests/${coachId}.json`);
+      const responseData = await response.data;
+
+      const requests = [];
+      for (const key in responseData) {
+        const request = {
+          id: key,
+          coachId: coachId,
+          userEmail: responseData[key].userEmail,
+          message: responseData[key].message
+        };
+        requests.push(request);
+      }
+      context.commit('setRequests', requests);
+    } catch (err) {
+      const error = new Error(err.message);
+      throw error;
+    }
   }
 };
