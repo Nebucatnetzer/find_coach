@@ -14,13 +14,15 @@ export default {
 
     try {
       await getAPI.put(`coaches/${userId}.json`, coachData);
+      context.commit('registerCoach', {
+        ...coachData,
+        id: userId
+      });
     } catch (err) {
       console.log(err.response.status);
     }
-
-    context.commit('registerCoach', {
-      ...coachData,
-      id: userId
-    });
+    } catch (err) {
+      console.log(err.response.status);
+    }
   }
 };
