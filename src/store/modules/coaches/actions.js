@@ -19,7 +19,7 @@ export default {
         id: userId
       });
     } catch (err) {
-      console.log(err.response.status);
+      console.log(err.message);
     }
   },
   async loadCoaches(context) {
@@ -40,7 +40,8 @@ export default {
       }
       context.commit('setCoaches', coaches);
     } catch (err) {
-      console.log(err.response.status);
+      const error = new Error(err.message || 'Failed to fetch!');
+      throw error;
     }
   }
 };
