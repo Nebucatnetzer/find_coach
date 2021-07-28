@@ -1,5 +1,8 @@
+import getAPI from '../../../scripts/axios-api';
+
 export default {
-  registerCoach(context, data) {
+  async registerCoach(context, data) {
+    const userId = context.rootGetters.userId;
     const coachData = {
       id: context.rootGetters.userId,
       firstName: data.first,
@@ -8,6 +11,16 @@ export default {
       hourlyRate: data.rate,
       areas: data.areas
     };
-    context.commit('registerCoach', coachData);
+
+    try {
+      await getAPI.put(`coaches/${userId}.json`, coachData);
+    } catch (err) {
+      console.log(err.response.status);
+    }
+
+    context.commit('registerCoach', {
+      ...coachData,
+      id: userId
+    });
   }
 };
