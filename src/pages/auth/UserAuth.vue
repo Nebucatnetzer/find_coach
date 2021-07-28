@@ -16,9 +16,7 @@
 </template>
 
 <script>
-import BaseCard from '../../components/ui/BaseCard.vue';
 export default {
-  components: { BaseCard }
 };
 </script>
 
