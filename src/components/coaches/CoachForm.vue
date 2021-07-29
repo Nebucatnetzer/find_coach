@@ -60,7 +60,7 @@
           v-model="areas.val"
           @blur="clearValidity('areas')"
         />
-        <label for="backend">Frontend Development</label>
+        <label for="frontend">Frontend Development</label>
       </div>
       <div>
         <input
