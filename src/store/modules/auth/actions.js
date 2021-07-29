@@ -36,5 +36,12 @@ export default {
       const error = new Error(err.message);
       throw error;
     }
+  },
+  logout(context) {
+    context.commit('setUser', {
+      token: null,
+      userId: null,
+      tokenExpiration: null
+    });
   }
 };
