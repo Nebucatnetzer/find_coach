@@ -12,8 +12,14 @@ export default {
       areas: data.areas
     };
 
+    const token = context.rootGetters.token;
+    const axiosConfig = {
+      params: { auth: token }
+    };
+
     try {
-      await getAPI.put(`coaches/${userId}.json`, coachData);
+      console.log(axiosConfig);
+      await getAPI.put(`coaches/${userId}.json`, coachData, axiosConfig);
       context.commit('registerCoach', {
         ...coachData,
         id: userId

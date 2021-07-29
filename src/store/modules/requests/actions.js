@@ -21,9 +21,17 @@ export default {
     }
   },
   async fetchRequests(context) {
+    const coachId = context.rootGetters.userId;
+    const token = context.rootGetters.token;
+    const axiosConfig = {
+      params: { auth: token }
+    };
+
     try {
-      const coachId = context.rootGetters.userId;
-      const response = await getAPI.get(`requests/${coachId}.json`);
+      const response = await getAPI.get(
+        `requests/${coachId}.json`,
+        axiosConfig
+      );
       const responseData = await response.data;
 
       const requests = [];
