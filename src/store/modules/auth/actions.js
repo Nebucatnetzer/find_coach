@@ -26,6 +26,10 @@ export default {
         returnSecureToken: true
       });
       const responseData = response.data;
+
+      localStorage.setItem('token', responseData.idToken);
+      localStorage.setItem('userId', responseData.localId);
+
       context.commit('setUser', {
         token: responseData.idToken,
         userId: responseData.localId,
@@ -34,6 +38,18 @@ export default {
     } catch (err) {
       const error = new Error(err.message);
       throw error;
+    }
+  },
+  tryLogin(context) {
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
+
+    if (token && userId) {
+      context.commit('setUser', {
+        token: token,
+        userId: userId,
+        tokenExpiration: null
+      });
     }
   },
   logout(context) {
