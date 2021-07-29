@@ -9,7 +9,6 @@ export default {
         returnSecureToken: true
       });
       const responseData = response.data;
-      console.log(responseData);
       context.commit('setUser', {
         token: responseData.idToken,
         userId: responseData.localId,
@@ -28,7 +27,6 @@ export default {
         returnSecureToken: true
       });
       const responseData = response.data;
-      console.log(responseData);
       context.commit('setUser', {
         token: responseData.idToken,
         userId: responseData.localId,

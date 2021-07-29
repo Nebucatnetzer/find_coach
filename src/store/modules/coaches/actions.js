@@ -18,7 +18,6 @@ export default {
     };
 
     try {
-      console.log(axiosConfig);
       await getAPI.put(`coaches/${userId}.json`, coachData, axiosConfig);
       context.commit('registerCoach', {
         ...coachData,
